@@ -5,6 +5,15 @@ out/
 # Node modules
 node_modules/
 
+# Netlify
+.netlify/
+
+# Database
+*.db
+
+# TypeScript
+*.tsbuildinfo
+
 # Logs
 *.log
 
