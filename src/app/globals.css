@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-on-tertiary-fixed: #002020;
+  --color-primary-container: #5e5ce6;
+  --color-secondary-fixed-dim: #b5cbca;
+  --color-secondary-fixed: #d0e7e6;
+  --color-outline: #918fa0;
+  --color-surface-container: #182121;
+  --color-primary-fixed: #e2dfff;
+  --color-inverse-primary: #4d4ad5;
+  --color-on-surface-variant: #c7c4d7;
+  --color-on-error-container: #ffdad6;
+  --color-outline-variant: #464554;
+  --color-on-primary-fixed: #0c006b;
+  --color-on-secondary: #203434;
+  --color-on-background: #dbe4e4;
+  --color-on-secondary-fixed-variant: #364a4a;
+  --color-on-error: #690005;
+  --color-surface-dim: #0c1515;
+  --color-background: #0c1515;
+  --color-surface-bright: #323b3b;
+  --color-surface-container-low: #141d1d;
+  --color-tertiary-container: #367979;
+  --color-on-primary-container: #f4f1ff;
+  --color-on-tertiary-container: #beffff;
+  --color-on-secondary-fixed: #0a1f1f;
+  --color-tertiary: #90d2d2;
+  --color-tertiary-fixed-dim: #90d2d2;
+  --color-on-primary-fixed-variant: #332dbc;
+  --color-surface-container-high: #232c2c;
+  --color-error: #ffb4ab;
+  --color-surface-container-lowest: #071010;
+  --color-inverse-on-surface: #293232;
+  --color-on-secondary-container: #a7bdbc;
+  --color-on-primary: #1800a7;
+  --color-error-container: #93000a;
+  --color-primary: #c2c1ff;
+  --color-surface: #0c1515;
+  --color-inverse-surface: #dbe4e4;
+  --color-primary-fixed-dim: #c2c1ff;
+  --color-secondary-container: #384d4d;
+  --color-surface-variant: #2d3636;
+  --color-on-tertiary: #003737;
+  --color-tertiary-fixed: #aceeee;
+  --color-on-surface: #dbe4e4;
+  --color-on-tertiary-fixed-variant: #004f50;
+  --color-secondary: #b5cbca;
+  --color-surface-tint: #c2c1ff;
+  --color-accent-violet: #5e5ce6;
+  --color-surface-container-highest: #2d3636;
+
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  --spacing-bento-gap: 20px;
+
+  --font-display-xl: "Playfair Display", serif;
+  --font-title-md: "Inter", sans-serif;
+  --font-headline-lg-mobile: "Playfair Display", serif;
+  --font-label-caps: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-headline-lg: "Playfair Display", serif;
+  --font-body-sm: "Inter", sans-serif;
+  --font-headline-md: "Inter", sans-serif;
+
+  --text-display-xl: 64px;
+  --text-display-xl--line-height: 72px;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-xl--font-weight: 700;
+
+  --text-title-md: 20px;
+  --text-title-md--line-height: 28px;
+  --text-title-md--font-weight: 600;
+
+  --text-headline-lg-mobile: 32px;
+  --text-headline-lg-mobile--line-height: 40px;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 16px;
+  --text-label-caps--letter-spacing: 0.05em;
+  --text-label-caps--font-weight: 600;
+
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-lg--font-weight: 400;
+
+  --text-headline-lg: 40px;
+  --text-headline-lg--line-height: 48px;
+  --text-headline-lg--font-weight: 600;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm--font-weight: 400;
+
+  --text-headline-md: 20px;
+  --text-headline-md--line-height: 1.4;
+  --text-headline-md--font-weight: 600;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: "Inter", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.bento-card {
+  background-color: var(--color-surface-container);
+  padding: 24px;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-outline-variant);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 10px;
+}

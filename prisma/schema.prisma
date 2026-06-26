@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(uuid())
+  name           String
+  email          String   @unique
+  password       String
+  role           String   // author, chief_warden, warden, student
+  isAcPreference Boolean  @default(false)
+  otp            String?
+  otpExpiresAt   DateTime?
+  
+  roomId         String?
+  room           Room?    @relation(fields: [roomId], references: [id])
+  
+  complaints     Complaint[]
+  foodReviews    FoodReview[]
+  nameUpdates    NameUpdate[]
+}
+
+model Room {
+  id         String  @id @default(uuid())
+  roomNumber String  @unique
+  capacity   Int
+  isAc       Boolean
+  
+  occupants  User[]
+}
+
+model Complaint {
+  id          String    @id @default(uuid())
+  studentId   String
+  studentName String
+  room        String
+  category    String
+  title       String
+  details     String
+  status      String    @default("Open")
+  createdAt   DateTime  @default(now())
+  resolvedAt  DateTime?
+  
+  student     User      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model Notice {
+  id         String   @id @default(uuid())
+  title      String
+  content    String
+  authorName String
+  createdAt  DateTime @default(now())
+}
+
+model MenuItem {
+  id          String @id @default(uuid())
+  day         String
+  meal        String
+  description String
+
+  @@unique([day, meal])
+}
+
+model FoodReview {
+  id          String   @id @default(uuid())
+  studentId   String
+  studentName String
+  rating      Int
+  review      String
+  createdAt   DateTime @default(now())
+  
+  student     User     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
+
+model NameUpdate {
+  id          String   @id @default(uuid())
+  studentId   String
+  newName     String
+  status      String   @default("Pending")
+  createdAt   DateTime @default(now())
+
+  student     User     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}
